@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#FAF9F6">
+    <meta name="description" content="Save the Date — Nicole & Pedro | 20 de fevereiro de 2027">
+
+    <title>Nicole & Pedro | Save the Date</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#FAF9F6',
+                        cream: '#F7F2EC',
+                        champagne: '#E7D8C5',
+                        champagneSoft: '#F2EAE1',
+                        gold: '#C5A059',
+                        goldLight: '#DCC69A',
+                        goldPale: '#F1E8D8',
+                        charcoal: '#292725',
+                        warmGray: '#746E68'
+                    },
+
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Montserrat', 'sans-serif']
+                    },
+
+                    boxShadow: {
+                        elegant: '0 18px 50px rgba(100, 78, 50, 0.10)',
+                        soft: '0 8px 30px rgba(100, 78, 50, 0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #FAF9F6;
+            color: #292725;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .serif {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        ::selection {
+            background: #E7D8C5;
+            color: #292725;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #FAF9F6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 20px;
+        }
+
+        /* Header */
+        .header-scrolled {
+            box-shadow: 0 8px 30px rgba(80, 60, 40, 0.08);
+            background: rgba(250, 249, 246, 0.96) !important;
+        }
+
+        /* Decorative lines */
+        .gold-line {
+            width: 45px;
+            height: 1px;
+            background: #C5A059;
+        }
+
+        /* Fade animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: .15s;
+            opacity: 0;
+        }
+
+        .delay-2 {
+            animation-delay: .3s;
+            opacity: 0;
+        }
+
+        .delay-3 {
+            animation-delay: .45s;
+            opacity: 0;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+        .heart {
+            animation: heartbeat 2.2s infinite ease-in-out;
+        }
+
+        @keyframes pulseSoft {
+            0%, 100% {
+                opacity: .45;
+            }
+
+            50% {
+                opacity: .8;
+            }
+        }
+
+        .pulse-soft {
+            animation: pulseSoft 4s infinite ease-in-out;
+        }
+
+        /* Hero background */
+        .hero-glow {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 999px;
+            background: #F2EAE1;
+            filter: blur(90px);
+            opacity: .55;
+            pointer-events: none;
+        }
+
+        /* Photo */
+        .photo-frame {
+            position: relative;
+        }
+
+        .photo-frame::before {
+            content: "";
+            position: absolute;
+            inset: -8px;
+            border: 1px solid rgba(197, 160, 89, .35);
+            border-radius: 18px;
+            pointer-events: none;
+        }
+
+        .photo-placeholder {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(231,216,197,.35),
+                    rgba(250,249,246,.9)
+                );
+        }
+
+        /* Countdown */
+        .countdown-box {
+            transition: all .3s ease;
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(100, 78, 50, .12);
+        }
+
+        /* Buttons */
+        .gold-button {
+            transition: all .3s ease;
+        }
+
+        .gold-button:hover {
+            background: #C5A059;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(197,160,89,.22);
+        }
+
+        .outline-button {
+            transition: all .3s ease;
+        }
+
+        .outline-button:hover {
+            background: #C5A059;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile menu */
+        #mobile-menu {
+            transition: all .3s ease;
+        }
+
+        /* RSVP success */
+        @keyframes successIn {
+            from {
+                opacity: 0;
+                transform: scale(.94);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .success-animation {
+            animation: successIn .4s ease forwards;
+        }
+
+        /* Ornamental corners */
+        .ornament {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-color: rgba(197,160,89,.35);
+            pointer-events: none;
+        }
+
+        .ornament-tl {
+            top: 15px;
+            left: 15px;
+            border-top: 1px solid;
+            border-left: 1px solid;
+        }
+
+        .ornament-br {
+            bottom: 15px;
+            right: 15px;
+            border-bottom: 1px solid;
+            border-right: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ========================================================= -->
+<!-- HEADER -->
+<!-- ========================================================= -->
+
+<header
+    id="header"
+    class="fixed top-0 left-0 right-0 z-50 bg-ivory/85 backdrop-blur-md border-b border-champagne/40 transition-all duration-300"
+>
+    <div class="max-w-6xl mx-auto px-6 h-[76px] flex items-center justify-between">
+
+        <a
+            href="#inicio"
+            class="serif text-2xl tracking-[0.22em] text-charcoal"
+        >
+            N <span class="text-gold">&</span> P
+        </a>
+
+        <!-- Desktop -->
+        <nav class="hidden md:flex items-center gap-8 text-[10px] uppercase tracking-[0.25em] text-warmGray">
+
+            <a href="#inicio" class="hover:text-gold transition">
+                Início
+            </a>
+
+            <a href="#historia" class="hover:text-gold transition">
+                Nossa História
+            </a>
+
+            <a href="#grande-dia" class="hover:text-gold transition">
+                O Grande Dia
+            </a>
+
+            <a href="#proposito" class="hover:text-gold transition">
+                Propósito
+            </a>
+
+            <a
+                href="#rsvp"
+                class="px-5 py-3 rounded-full border border-gold text-gold hover:bg-gold hover:text-white transition"
+            >
+                Confirmar Presença
+            </a>
+
+        </nav>
+
+        <!-- Mobile button -->
+        <button
+            id="menu-btn"
+            class="md:hidden w-10 h-10 flex items-center justify-center text-charcoal"
+            aria-label="Abrir menu"
+        >
+            <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+
+    </div>
+
+    <!-- Mobile menu -->
+    <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-ivory border-t border-champagne/40 px-6 py-7"
+    >
+
+        <nav class="flex flex-col items-center gap-5 text-[10px] uppercase tracking-[0.22em]">
+
+            <a href="#inicio" class="mobile-link text-warmGray">
+                Início
+            </a>
+
+            <a href="#historia" class="mobile-link text-warmGray">
+                Nossa História
+            </a>
+
+            <a href="#grande-dia" class="mobile-link text-warmGray">
+                O Grande Dia
+            </a>
+
+            <a href="#proposito" class="mobile-link text-warmGray">
+                Propósito
+            </a>
+
+            <a
+                href="#rsvp"
+                class="mobile-link mt-2 bg-charcoal text-white px-7 py-3 rounded-full"
+            >
+                Confirmar Presença
+            </a>
+
+        </nav>
+    </div>
+</header>
+
+
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
+
+<section
+    id="inicio"
+    class="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-20 overflow-hidden"
+>
+
+    <div class="hero-glow top-10 left-[-150px]"></div>
+    <div class="hero-glow bottom-[-120px] right-[-150px]"></div>
+
+    <div class="max-w-4xl w-full mx-auto text-center relative z-10">
+
+        <!-- Cross -->
+        <div class="fade-up text-gold text-sm mb-6">
+            <i class="fa-solid fa-cross"></i>
+        </div>
+
+        <!-- Save the date -->
+        <p
+            class="fade-up delay-1 text-[10px] md:text-xs uppercase tracking-[0.4em] text-warmGray mb-5"
+        >
+            Save the Date
+        </p>
+
+        <!-- Names -->
+        <h1
+            class="fade-up delay-1 serif text-5xl sm:text-7xl md:text-8xl font-light tracking-wide text-charcoal"
+        >
+            Nicole
+            <span class="text-gold italic">&</span>
+            Pedro
+        </h1>
+
+        <!-- Date -->
+        <div class="fade-up delay-2 flex items-center justify-center gap-4 mt-5 mb-6">
+
+            <div class="gold-line"></div>
+
+            <p class="serif text-xl md:text-2xl text-gold tracking-[0.18em]">
+                20 • 02 • 2027
+            </p>
+
+            <div class="gold-line"></div>
+
+        </div>
+
+        <!-- Verse -->
+        <div class="fade-up delay-2 max-w-md mx-auto mb-10">
+
+            <p class="serif italic text-base md:text-lg text-warmGray">
+                “Até aqui nos ajudou o Senhor.”
+            </p>
+
+            <p class="text-[9px] uppercase tracking-[0.3em] text-gold mt-2">
+                1 Samuel 7:12
+            </p>
+
+        </div>
+
+
+        <!-- PHOTO -->
+        <div class="fade-up delay-3 photo-frame max-w-[360px] sm:max-w-[420px] mx-auto mb-11">
+
+            <div class="bg-white p-3 rounded-2xl shadow-elegant">
+
+                <!--
+                    TROQUE A IMAGEM ABAIXO PELA FOTO DE VOCÊS.
+
+                    Exemplo:
+                    <img src="foto-casal.jpg" ...>
+
+                    Se estiver hospedada:
+                    <img src="https://site.com/foto.jpg" ...>
+                -->
+
+                <div class="aspect-[4/5] rounded-xl overflow-hidden photo-placeholder">
+
+                    <img
+                        src="foto-casal.jpg"
+                        alt="Nicole e Pedro"
+                        class="w-full h-full object-cover"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <!-- Placeholder caso não exista foto -->
+                    <div
+                        class="hidden w-full h-full flex-col items-center justify-center text-center px-8"
+                    >
+
+                        <div class="w-16 h-16 rounded-full bg-white/70 flex items-center justify-center text-gold mb-5">
+                            <i class="fa-regular fa-image text-2xl"></i>
+                        </div>
+
+                        <p class="serif text-xl text-charcoal">
+                            Nicole & Pedro
+                        </p>
+
+                        <p class="text-[9px] uppercase tracking-[0.22em] text-warmGray mt-2">
+                            Nossa foto
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Buttons -->
+        <div class="fade-up delay-3 flex flex-col sm:flex-row justify-center items-center gap-3">
+
+            <a
+                href="#rsvp"
+                class="gold-button w-full sm:w-auto px-8 py-4 rounded-full bg-charcoal text-white text-[10px] uppercase tracking-[0.25em]"
+            >
+                Confirmar Presença
+            </a>
+
+            <a
+                href="#historia"
+                class="outline-button w-full sm:w-auto px-8 py-4 rounded-full border border-gold text-charcoal text-[10px] uppercase tracking-[0.25em]"
+            >
+                Nossa História
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- HISTÓRIA -->
+<!-- ========================================================= -->
+
+<section
+    id="historia"
+    class="relative py-24 px-6 bg-cream/60"
+>
+
+    <div class="max-w-3xl mx-auto text-center">
+
+        <div class="text-gold text-sm mb-5">
+            <i class="fa-solid fa-seedling"></i>
+        </div>
+
+        <p class="text-[9px] uppercase tracking-[0.35em] text-gold mb-3">
+            Com Deus no centro
+        </p>
+
+        <h2 class="serif text-4xl md:text-5xl font-light text-charcoal mb-10">
+            Nossa História
+        </h2>
+
+        <div class="relative bg-white rounded-2xl p-8 sm:p-12 shadow-soft border border-champagne/60 overflow-hidden">
+
+            <div class="ornament ornament-tl"></div>
+            <div class="ornament ornament-br"></div>
+
+            <p class="serif italic text-xl md:text-2xl leading-relaxed text-charcoal">
+                “Antes de sermos dois, somos de Cristo.
+                E é nEle que escolhemos construir nossa história,
+                nosso lar e nossa família.”
+            </p>
+
+            <div class="w-10 h-px bg-gold mx-auto my-8"></div>
+
+            <p class="text-xs md:text-sm leading-7 text-warmGray font-light max-w-xl mx-auto">
+                Cada passo até aqui carrega a direção e a fidelidade de Deus.
+                Mais do que celebrar o nosso amor, queremos reconhecer Aquele
+                que nos sustentou, nos ensinou a amar e nos conduziu até este dia.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- GRANDE DIA -->
+<!-- ========================================================= -->
+
+<section
+    id="grande-dia"
+    class="relative py-24 px-6 bg-ivory"
+>
+
+    <div class="max-w-4xl mx-auto text-center">
+
+        <p class="text-[9px] uppercase tracking-[0.35em] text-gold mb-3">
+            Nossa contagem regressiva
+        </p>
+
+        <h2 class="serif text-4xl md:text-5xl font-light text-charcoal">
+            O Grande Dia
+        </h2>
+
+        <p class="serif italic text-lg text-warmGray mt-3 mb-4">
+            20 de fevereiro de 2027
+        </p>
+
+        <p class="text-[10px] uppercase tracking-[0.25em] text-gold mb-12">
+            Às 15h30
+        </p>
+
+
+        <!-- Countdown -->
+        <div
+            class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 max-w-3xl mx-auto mb-12"
+        >
+
+            <div class="countdown-box bg-white border border-champagne/70 rounded-2xl p-6 shadow-soft">
+                <span
+                    id="days"
+                    class="block serif text-4xl md:text-5xl text-charcoal"
+                >
+                    00
+                </span>
+
+                <span class="text-[9px] uppercase tracking-[0.25em] text-warmGray">
+                    Dias
+                </span>
+            </div>
+
+
+            <div class="countdown-box bg-white border border-champagne/70 rounded-2xl p-6 shadow-soft">
+                <span
+                    id="hours"
+                    class="block serif text-4xl md:text-5xl text-charcoal"
+                >
+                    00
+                </span>
+
+                <span class="text-[9px] uppercase tracking-[0.25em] text-warmGray">
+                    Horas
+                </span>
+            </div>
+
+
+            <div class="countdown-box bg-white border border-champagne/70 rounded-2xl p-6 shadow-soft">
+                <span
+                    id="minutes"
+                    class="block serif text-4xl md:text-5xl text-charcoal"
+                >
+                    00
+                </span>
+
+                <span class="text-[9px] uppercase tracking-[0.25em] text-warmGray">
+                    Minutos
+                </span>
+            </div>
+
+
+            <div class="countdown-box bg-white border border-champagne/70 rounded-2xl p-6 shadow-soft">
+                <span
+                    id="seconds"
+                    class="block serif text-4xl md:text-5xl text-charcoal"
+                >
+                    00
+                </span>
+
+                <span class="text-[9px] uppercase tracking-[0.25em] text-warmGray">
+                    Segundos
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="max-w-xl mx-auto">
+
+            <div class="flex items-center justify-center gap-4 mb-5">
+                <div class="gold-line"></div>
+
+                <i class="fa-regular fa-heart text-gold heart"></i>
+
+                <div class="gold-line"></div>
+            </div>
+
+            <p class="serif italic text-base md:text-lg text-warmGray leading-relaxed">
+                “Estamos contando os dias para celebrar este momento
+                ao lado das pessoas que amamos.”
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- PROPÓSITO -->
+<!-- ========================================================= -->
+
+<section
+    id="proposito"
+    class="py-24 px-6 bg-cream/60"
+>
+
+    <div class="max-w-3xl mx-auto text-center">
+
+        <div class="text-gold text-lg mb-5 pulse-soft">
+            <i class="fa-solid fa-dove"></i>
+        </div>
+
+        <p class="text-[9px] uppercase tracking-[0.35em] text-gold mb-3">
+            Nosso propósito
+        </p>
+
+        <h2 class="serif text-4xl md:text-5xl font-light text-charcoal mb-8">
+            Um Dia Abençoado por Deus
+        </h2>
+
+        <p class="serif italic text-xl md:text-2xl text-warmGray leading-relaxed mb-10">
+            “Mais do que celebrar o nosso amor,
+            queremos celebrar a fidelidade de Deus em nossa história.”
+        </p>
+
+
+        <div class="relative bg-white rounded-2xl border border-champagne/70 p-8 sm:p-12 shadow-soft">
+
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-cream px-5 text-gold text-xs">
+                ✦
+            </div>
+
+            <p class="serif italic text-lg md:text-xl leading-relaxed text-charcoal">
+                “O amor é paciente, o amor é bondoso.
+                Não inveja, não se vangloria, não se orgulha.
+                Tudo sofre, tudo crê, tudo espera, tudo suporta.
+                O amor nunca falha.”
+            </p>
+
+            <p class="text-[9px] uppercase tracking-[0.3em] text-gold mt-6">
+                1 Coríntios 13:4, 7-8
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- RSVP -->
+<!-- ========================================================= -->
+
+<section
+    id="rsvp"
+    class="py-24 px-6 bg-ivory"
+>
+
+    <div class="max-w-xl mx-auto">
+
+        <div class="text-center mb-10">
+
+            <div class="text-gold text-lg mb-5">
+                <i class="fa-regular fa-envelope"></i>
+            </div>
+
+            <p class="text-[9px] uppercase tracking-[0.35em] text-gold mb-3">
+                Será uma alegria ter você conosco
+            </p>
+
+            <h2 class="serif text-4xl md:text-5xl font-light text-charcoal mb-4">
+                Confirme sua Presença
+            </h2>
+
+            <p class="text-xs leading-6 text-warmGray max-w-md mx-auto">
+                Preencha seu nome completo para confirmar sua presença
+                em nosso grande dia.
+            </p>
+
+        </div>
+
+
+        <div class="bg-white rounded-2xl border border-champagne/70 shadow-elegant p-8 sm:p-10">
+
+            <!-- FORM -->
+            <form id="rsvp-form" class="space-y-6">
+
+                <div>
+
+                    <label
+                        for="guest-name"
+                        class="block text-[9px] uppercase tracking-[0.25em] text-charcoal mb-3"
+                    >
+                        Nome completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="guest-name"
+                        autocomplete="name"
+                        required
+                        placeholder="Digite seu nome"
+                        class="w-full px-5 py-4 rounded-xl border border-champagne bg-ivory/50 text-sm text-charcoal placeholder:text-warmGray/60 outline-none focus:border-gold transition"
+                    >
+
+                    <p
+                        id="error-msg"
+                        class="hidden text-[10px] text-red-500 mt-2"
+                    >
+                        Por favor, informe seu nome completo.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="submit-btn"
+                    class="w-full py-4 rounded-full bg-charcoal text-white text-[10px] uppercase tracking-[0.28em] gold-button"
+                >
+                    Confirmar presença
+                </button>
+
+            </form>
+
+
+            <!-- SUCCESS -->
+            <div
+                id="success-msg"
+                class="hidden text-center py-7 success-animation"
+            >
+
+                <div
+                    class="w-16 h-16 rounded-full bg-goldPale flex items-center justify-center mx-auto mb-5 text-gold"
+                >
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <h3 class="serif text-3xl text-charcoal mb-3">
+                    Presença confirmada!
+                </h3>
+
+                <p class="serif italic text-base text-warmGray leading-relaxed">
+                    “Será uma alegria celebrar esse dia com você. 🤍”
+                </p>
+
+                <button
+                    id="reset-btn"
+                    class="mt-7 text-[9px] uppercase tracking-[0.25em] text-gold hover:underline"
+                >
+                    Confirmar outro nome
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<footer
+    class="relative py-20 px-6 bg-charcoal text-ivory text-center overflow-hidden"
+>
+
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-gold/50"></div>
+
+    <div class="max-w-xl mx-auto">
+
+        <div class="text-gold text-sm mb-5">
+            <i class="fa-solid fa-cross"></i>
+        </div>
+
+        <h3 class="serif text-3xl md:text-4xl tracking-wide">
+            Nicole
+            <span class="text-gold italic">&</span>
+            Pedro
+        </h3>
+
+        <p class="serif italic text-champagne text-base mt-3">
+            20 • 02 • 2027
+        </p>
+
+        <div class="w-10 h-px bg-gold/50 mx-auto my-7"></div>
+
+        <p class="serif italic text-sm text-ivory/70">
+            “Com Cristo, para sempre.”
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
+<script type="module">
+
+    /* ========================================================
+       FIREBASE
+    ======================================================== */
+
+    import {
+        initializeApp
+    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+
+    import {
+        getAuth,
+        signInAnonymously,
+        signInWithCustomToken
+    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+    import {
+        getFirestore,
+        collection,
+        addDoc
+    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+
+    const appId =
+        typeof __app_id !== 'undefined'
+            ? __app_id
+            : 'nicole-pedro-wedding-2027';
+
+
+    let db = null;
+    let auth = null;
+    let firebaseReady = false;
+
+
+    try {
+
+        if (typeof __firebase_config !== 'undefined') {
+
+            const firebaseConfig = JSON.parse(__firebase_config);
+
+            const app = initializeApp(firebaseConfig);
+
+            db = getFirestore(app);
+
+            auth = getAuth(app);
+
+
+            const token =
+                typeof __initial_auth_token !== 'undefined'
+                    ? __initial_auth_token
+                    : null;
+
+
+            if (token) {
+
+                signInWithCustomToken(auth, token)
+                    .catch(() => signInAnonymously(auth));
+
+            } else {
+
+                signInAnonymously(auth);
+
+            }
+
+
+            firebaseReady = true;
+
+        }
+
+    } catch (error) {
+
+        console.warn(
+            'Firebase não inicializado. O site utilizará armazenamento local.',
+            error
+        );
+
+    }
+
+
+
+    /* ========================================================
+       MENU MOBILE
+    ======================================================== */
+
+    const menuBtn =
+        document.getElementById('menu-btn');
+
+    const mobileMenu =
+        document.getElementById('mobile-menu');
+
+    const mobileLinks =
+        document.querySelectorAll('.mobile-link');
+
+
+    menuBtn.addEventListener('click', () => {
+
+        mobileMenu.classList.toggle('hidden');
+
+        const icon =
+            menuBtn.querySelector('i');
+
+        if (mobileMenu.classList.contains('hidden')) {
+
+            icon.className = 'fa-solid fa-bars text-lg';
+
+        } else {
+
+            icon.className = 'fa-solid fa-xmark text-lg';
+
+        }
+
+    });
+
+
+    mobileLinks.forEach(link => {
+
+        link.addEventListener('click', () => {
+
+            mobileMenu.classList.add('hidden');
+
+            const icon =
+                menuBtn.querySelector('i');
+
+            icon.className =
+                'fa-solid fa-bars text-lg';
+
+        });
+
+    });
+
+
+
+    /* ========================================================
+       HEADER AO ROLAR
+    ======================================================== */
+
+    const header =
+        document.getElementById('header');
+
+
+    window.addEventListener('scroll', () => {
+
+        if (window.scrollY > 30) {
+
+            header.classList.add('header-scrolled');
+
+        } else {
+
+            header.classList.remove('header-scrolled');
+
+        }
+
+    });
+
+
+
+    /* ========================================================
+       CONTAGEM REGRESSIVA
+       20/02/2027 às 15:30
+    ======================================================== */
+
+    const weddingDate =
+        new Date('2027-02-20T15:30:00-03:00').getTime();
+
+
+    const daysEl =
+        document.getElementById('days');
+
+    const hoursEl =
+        document.getElementById('hours');
+
+    const minutesEl =
+        document.getElementById('minutes');
+
+    const secondsEl =
+        document.getElementById('seconds');
+
+
+    function updateCountdown() {
+
+        const now =
+            Date.now();
+
+        const distance =
+            weddingDate - now;
+
+
+        if (distance <= 0) {
+
+            daysEl.innerText = '00';
+            hoursEl.innerText = '00';
+            minutesEl.innerText = '00';
+            secondsEl.innerText = '00';
+
+            return;
+
+        }
+
+
+        const days =
+            Math.floor(
+                distance / (1000 * 60 * 60 * 24)
+            );
+
+
+        const hours =
+            Math.floor(
+                (distance % (1000 * 60 * 60 * 24))
+                / (1000 * 60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (distance % (1000 * 60 * 60))
+                / (1000 * 60)
+            );
+
+
+        const seconds =
+            Math.floor(
+                (distance % (1000 * 60))
+                / 1000
+            );
+
+
+        daysEl.innerText =
+            String(days).padStart(2, '0');
+
+        hoursEl.innerText =
+            String(hours).padStart(2, '0');
+
+        minutesEl.innerText =
+            String(minutes).padStart(2, '0');
+
+        secondsEl.innerText =
+            String(seconds).padStart(2, '0');
+
+    }
+
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+
+
+    /* ========================================================
+       RSVP
+    ======================================================== */
+
+    const form =
+        document.getElementById('rsvp-form');
+
+    const nameInput =
+        document.getElementById('guest-name');
+
+    const errorMsg =
+        document.getElementById('error-msg');
+
+    const submitBtn =
+        document.getElementById('submit-btn');
+
+    const successMsg =
+        document.getElementById('success-msg');
+
+    const resetBtn =
+        document.getElementById('reset-btn');
+
+
+    form.addEventListener('submit', async (event) => {
+
+        event.preventDefault();
+
+
+        const fullName =
+            nameInput.value.trim();
+
+
+        if (fullName.length < 3) {
+
+            errorMsg.classList.remove('hidden');
+
+            nameInput.classList.add('border-red-400');
+
+            nameInput.focus();
+
+            return;
+
+        }
+
+
+        errorMsg.classList.add('hidden');
+
+        nameInput.classList.remove('border-red-400');
+
+
+        submitBtn.disabled = true;
+
+        submitBtn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin mr-2"></i> CONFIRMANDO...';
+
+
+        try {
+
+            if (firebaseReady && db) {
+
+                const rsvpCollection =
+                    collection(
+                        db,
+                        'artifacts',
+                        appId,
+                        'public',
+                        'data',
+                        'rsvps'
+                    );
+
+
+                await addDoc(
+                    rsvpCollection,
+                    {
+                        fullName: fullName,
+                        createdAt: new Date().toISOString()
+                    }
+                );
+
+
+            } else {
+
+                /*
+                    Fallback para testes locais.
+                */
+
+                const saved =
+                    JSON.parse(
+                        localStorage.getItem(
+                            'nicole_pedro_rsvps'
+                        ) || '[]'
+                    );
+
+
+                saved.push({
+                    fullName: fullName,
+                    createdAt: new Date().toISOString()
+                });
+
+
+                localStorage.setItem(
+                    'nicole_pedro_rsvps',
+                    JSON.stringify(saved)
+                );
+
+            }
+
+
+            form.classList.add('hidden');
+
+            successMsg.classList.remove('hidden');
+
+
+        } catch (error) {
+
+            console.error(
+                'Erro ao salvar confirmação:',
+                error
+            );
+
+
+            /*
+                Mesmo se o Firebase falhar,
+                mostramos a confirmação ao convidado.
+            */
+
+            form.classList.add('hidden');
+
+            successMsg.classList.remove('hidden');
+
+        } finally {
+
+            submitBtn.disabled = false;
+
+            submitBtn.innerHTML =
+                'Confirmar presença';
+
+        }
+
+    });
+
+
+
+    /* ========================================================
+       NOVA CONFIRMAÇÃO
+    ======================================================== */
+
+    resetBtn.addEventListener('click', () => {
+
+        nameInput.value = '';
+
+        successMsg.classList.add('hidden');
+
+        form.classList.remove('hidden');
+
+        nameInput.focus();
+
+    });
+
+
+
+    /* ========================================================
+       ANIMAÇÃO AO ENTRAR NAS SEÇÕES
+    ======================================================== */
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add('fade-up');
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    document
+        .querySelectorAll(
+            'section h2, section .gold-line'
+        )
+        .forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+</script>
+
+</body>
+</html>
